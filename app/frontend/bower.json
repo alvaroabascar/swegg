@@ -1,0 +1,21 @@
+{
+  "name": "swegg",
+  "version": "0.0.1",
+  "homepage": "https://github.com/alvaroabascar/swegg",
+  "description": "A template to create flask webapps with swagger which can run on appengine",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "<alvaroabascar@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

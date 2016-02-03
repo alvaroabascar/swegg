@@ -1,0 +1,33 @@
+---
+swagger: "2.0"
+info:
+  description: "Swegg webapp API"
+  version: "1.0.0"
+  title: "Swegg API"
+basePath: "/api/v1"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  
+  /names:
+    get:
+      tags:
+      - "Data-related endpoints"
+      summary: "List of names."
+      description: "The Names endpoint returns the list of people names, as a\
+        list of strings."
+      operationId: "app.api.default_controller.names_get"
+      responses:
+          200:
+              description: "a json object with a list of names"
+              schema:
+                  $ref: "#/definitions/Names"
+              
+definitions:
+
+  Names:
+    type: "array"
+    items:
+      type: "string"
