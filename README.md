@@ -20,12 +20,6 @@ python run.py
 
 #### Option b) Appengine local server
 ```{bash}
-gcloud preview app run app.y
-```
-
-or
-
-```{bash}
 dev_appserver .
 ```
 
