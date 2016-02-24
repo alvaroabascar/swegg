@@ -4,7 +4,7 @@ var bower = require('gulp-bower');
 var inject = require('gulp-inject');
 var uglify = require('gulp-uglify');
 var cssmin = require('gulp-cssmin');
-var clean = require('gulp-clean');
+var del = require('del');
 
 var paths = {
     javascript: [
@@ -38,8 +38,8 @@ gulp.task('bower', function () {
     .pipe(gulp.dest('./static/dist/'))
 });
 
-gulp.task('inject-dev', ['min'], function () {
-    return gulp.src('./templates/main-index.html')
+gulp.task('inject-dev', function () {
+    return gulp.src('./templates/main-base.html')
         // inject js
         .pipe(inject(
             gulp.src(paths.javascript,
@@ -54,7 +54,7 @@ gulp.task('inject-dev', ['min'], function () {
 });
 
 gulp.task('inject-dist', ['min'], function () {
-    return gulp.src('./templates/main-index.html')
+    return gulp.src('./templates/main-base.html')
         // inject js
         .pipe(inject(
             gulp.src(paths.javascript_dist,
@@ -81,14 +81,11 @@ gulp.task('cssmin', ['concat-css'], function() {
 });
 
 gulp.task('clean-dist', function() {
-    return gulp.src('static/dist/*', {read: false})
-    .pipe(clean());
+    return del(['./static/dist/*']);
 });
 
 gulp.task('min', ['clean-dist', 'concat-js', 'uglify', 'concat-css', 'cssmin']);
 
-gulp.task('dev', ['min', 'inject-dev']);
-
 gulp.task('build', ['min', 'inject-dist']);
 
-gulp.task('default', ['dev']);
+gulp.task('default', ['inject-dev']);
