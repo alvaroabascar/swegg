@@ -5,10 +5,12 @@
         <title>Swegg</title>
         <meta charset="utf-8">
         <link rel="shortcut icon" href="/static/img/favicon.gif" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/production.min.css') }}">
+        <!-- inject:css -->
+        <!-- endinject -->
     </head>
     <body>
         {% block content %}{% endblock %}
-        <script src="{{ url_for('static', filename='dist/production.min.js') }}"></script>
+        <!-- inject:js -->
+        <!-- endinject -->
     </body>
 </html>
